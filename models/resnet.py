@@ -46,6 +46,7 @@ class ResNet(nn.Module):
     def __init__(self, block, num_classes=10):
         super(ResNet, self).__init__()
         self.in_planes = 16
+        self._model_name = 'resnet20'
 
         self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(16)
