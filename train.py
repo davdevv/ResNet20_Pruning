@@ -23,16 +23,12 @@ def train(optimizer, scheduler, model, dataset, num_epochs,
             else:
                 inputs, targets = (b.to(device) for b in batch)
 
-            enable_running_stats(model)
             outputs = model(inputs)
             loss = F.cross_entropy(outputs, targets, label_smoothing=label_smoothing)
+            optimizer.zero_grad()
             loss.backward()
             running_loss += loss.item()
-            optimizer.first_step(zero_grad=True)
-
-            disable_running_stats(model)
-            F.cross_entropy(model(inputs), targets, label_smoothing=label_smoothing).backward()
-            optimizer.second_step(zero_grad=True)
+            optimizer.step()
 
             with torch.no_grad():
                 running_accuracy += (torch.argmax(outputs.data, 1) == targets).sum().item()
