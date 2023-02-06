@@ -1,1 +1,1 @@
-# ResNet20 Pruning
+# ResNet-20 Pruning
