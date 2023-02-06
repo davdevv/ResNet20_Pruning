@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 from tqdm.auto import tqdm
-from utils import *
+from .utils import *
 
 
 def train(optimizer, scheduler, model, dataset, num_epochs,
