@@ -2,7 +2,7 @@ import abc
 import torch
 import torchvision
 import torchvision.transforms as transforms
-from augmentation import cutout
+from .augmentation import cutout
 
 
 class Cifar(abc.ABC):
