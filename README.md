@@ -1,1 +1,1 @@
-# ResNet20_Quantization
+# ResNet20 Prunning
