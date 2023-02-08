@@ -4,7 +4,8 @@ import copy
 from sklearn.cluster import KMeans
 
 
-def cluster_conv_net(model, clust_dict, device):
+#clust_dict - это словарь, ключи которого являются номером сверточного слоя, а значения числом кластеров/центроидов
+def cluster_conv_net(model, clust_dict -> dict, device):
     model_copy = copy.deepcopy(model)
     k = 0
     for layer in model_copy.named_modules():
@@ -19,5 +20,5 @@ def cluster_conv_net(model, clust_dict, device):
             new_weights = torch.reshape(new_weights, size)
             new_weights.to(device)
             layer[1].weight = nn.Parameter(new_weights.float())
-    # Return updated model
+    # Возвращаем модель с обновленными весами
     return model_copy
