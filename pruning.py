@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 
 
 #clust_dict - это словарь, ключи которого являются номером сверточного слоя, а значения числом кластеров/центроидов
-def cluster_conv_net(model, clust_dict -> dict, device):
+def cluster_conv_net(model, clust_dict: dict, device):
     model_copy = copy.deepcopy(model)
     k = 0
     for layer in model_copy.named_modules():
