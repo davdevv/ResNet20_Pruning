@@ -1,1 +1,1 @@
-# ResNet-20 Pruning
+# Filter Pruning using clustering methods
